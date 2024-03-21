@@ -4,11 +4,12 @@
   "description": "",
   "main": "webkeys.js",
   "scripts": {
-    "build": "npm run make:dist && npm run build:define && npm run build:src && npm run bundle && npm run build:html",
+    "build": "npm run make:dist && npm run build:define && npm run build:meta && npm run build:src && npm run bundle && npm run build:html",
     "build:src": "tsc",
     "build:define": "tsc lib/define.ts --lib es2015,dom --outDir tmp",
     "build:html": "cp lib/index.html dist/index.html",
-    "bundle": "cat lib/meta.js tmp/define.js tmp/out.js > dist/webkeys.js",
+    "build:meta": "cat lib/meta.js | sed \"s/@version.*/@version      $(date -u +\"%Y-%m-%dT%H:%M:%SZ\")\"/ > tmp/meta.js",
+    "bundle": "cat tmp/meta.js tmp/define.js tmp/out.js > dist/webkeys.js",
     "make:dist": "mkdir -p dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

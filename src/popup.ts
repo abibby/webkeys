@@ -64,27 +64,5 @@ function isHTMLElement(e: Element): e is HTMLElement {
 }
 
 function isVisible(e: HTMLElement): boolean {
-  if (e.offsetHeight == 0 || e.offsetWidth == 0) {
-    return false;
-  }
-
-  let vw = Math.max(
-    document.documentElement.clientWidth || 0,
-    window.innerWidth || 0
-  );
-  let vh = Math.max(
-    document.documentElement.clientHeight || 0,
-    window.innerHeight || 0
-  );
-  const rect = e.getBoundingClientRect();
-
-  return (
-    rect.height > 0 &&
-    rect.width > 0 &&
-    rect.top > 0 &&
-    rect.bottom < vh &&
-    rect.left > 0 &&
-    rect.right < vw &&
-    e.checkVisibility()
-  );
+  return e.checkVisibility();
 }

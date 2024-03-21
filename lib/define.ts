@@ -10,17 +10,8 @@ const registered = new Map<string, any>([
 ]);
 function define(name: string, imports: string[], run: (...args: any) => void) {
   const exports = {};
-  const params: any[] = [];
-
-  for (const imp of imports) {
-    if (imp == "exports") {
-      params.push(exports);
-    } else {
-      params.push(registered.get(imp));
-    }
-  }
-  console.log("run", name);
-
-  run(...params);
+  run(
+    ...imports.map((imp) => (imp == "exports" ? exports : registered.get(imp)))
+  );
   registered.set(name, exports);
 }

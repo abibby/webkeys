@@ -21,6 +21,10 @@ export function getInput() {
       return;
     }
     e.focus();
+    e.classList.add("webkeys-selected");
+    e.addEventListener("blur", () => e.classList.remove("webkeys-selected"), {
+      once: true,
+    });
 
     hideInput();
     closePopups();

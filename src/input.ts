@@ -1,4 +1,5 @@
 import { closePopups, openPopups } from "./popup";
+import { onUserInteraction } from "./utils";
 
 let input: HTMLInputElement | null = null;
 export function getInput() {
@@ -22,9 +23,7 @@ export function getInput() {
     }
     e.focus();
     e.classList.add("webkeys-selected");
-    e.addEventListener("blur", () => e.classList.remove("webkeys-selected"), {
-      once: true,
-    });
+    onUserInteraction(e, () => e.classList.remove("webkeys-selected"));
 
     hideInput();
     closePopups();

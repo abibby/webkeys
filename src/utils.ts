@@ -8,3 +8,13 @@ export function getName(i: number, len = 0): string {
     .join("")
     .padStart(len, "a");
 }
+
+export function onUserInteraction(e: HTMLElement, cb: () => void) {
+  const handler = () => {
+    cb();
+    e.removeEventListener("blur", handler);
+    e.removeEventListener("input", handler);
+  };
+  e.addEventListener("blur", handler);
+  e.addEventListener("input", handler);
+}

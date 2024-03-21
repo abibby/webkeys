@@ -27,12 +27,18 @@ export function addStyle() {
             font-size: 12px;
         }
         .webkeys-input {
+            box-sizing: border-box;
             position: fixed;
             bottom: 0;
             left: 0;
             z-index: 1000000;
             width: 100%;
-            height: 50px;
+            padding: 3px;
+            padding-bottom: 30px;
+            border-radius: 0;
+            outline: none;
+            border: none;
+            border-top: solid 2px black;
         }
         .webkeys-input.hidden {
             display: none;

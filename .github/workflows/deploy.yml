@@ -6,6 +6,8 @@ on:
 jobs:
   # Build job
   build:
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js

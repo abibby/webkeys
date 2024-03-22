@@ -1,6 +1,4 @@
-export const escapeHTMLPolicy = trustedTypes.createPolicy("forceInner", {
-  createHTML: (to_escape) => to_escape,
-});
+import { escapeHTMLPolicy } from "./escape";
 
 export function addStyle() {
   let styles = document.getElementById("webkeys-styles");

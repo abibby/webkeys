@@ -1,4 +1,5 @@
-import { escapeHTMLPolicy, getPopupContainer } from "./html";
+import { escapeHTMLPolicy } from "./escape";
+import { getPopupContainer } from "./html";
 import { getName } from "./utils";
 
 const interactableElementTypes = [

@@ -1,4 +1,4 @@
-if ("trustedTypes" in globalThis) {
+if (!("trustedTypes" in globalThis)) {
   const trustedTypes: TrustedTypePolicyFactory = {
     createPolicy(name, cfg) {
       return cfg;

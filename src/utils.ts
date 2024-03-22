@@ -14,7 +14,9 @@ export function onUserInteraction(e: HTMLElement, cb: () => void) {
     cb();
     e.removeEventListener("blur", handler);
     e.removeEventListener("input", handler);
+    e.removeEventListener("keydown", handler);
   };
   e.addEventListener("blur", handler);
   e.addEventListener("input", handler);
+  e.addEventListener("keydown", handler);
 }

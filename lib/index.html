@@ -6,28 +6,60 @@
     <title>WebKeys</title>
     <script src="./webkeys.js"></script>
     <style>
-      .code-inline {
-        display: inline-block;
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        max-width: 750px;
+        width: calc(100vw - 20px);
+        margin: auto;
+      }
+
+      .form-component {
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+      }
+      .form-component :first-child {
+        display: block;
+        width: 100%;
+      }
+      .form-component :not(:first-child) {
+        display: block;
+        width: 100%;
       }
     </style>
   </head>
   <body>
     <h1>WebKeys</h1>
     <p>
-      <a href="https://abibby.github.io/webkeys/webkeys.js">source</a>
+      WebKeys lets you select links buttons and form elements quickly without
+      needing to use the keyboard. You simply press the colon key and type the
+      letters next to the element you want to select. It's running right now,
+      give it a try.
     </p>
+    <h2>Install</h2>
+    <ul>
+      <li>Install <a href="https://www.tampermonkey.net/">Tampermonkey</a></li>
+      <li>Open the Tampermonkey dashboard</li>
+      <li>
+        Under utilities enter
+        <a href="https://abibby.github.io/webkeys/webkeys.js"
+          >https://abibby.github.io/webkeys/webkeys.js</a
+        >
+        into the Import from URL
+      </li>
+      <li>Click install</li>
+    </ul>
     <h2>Try it out</h2>
-    <p>You can activate it by pressing the colon key</p>
-    <p>
-      <button>Button</button>
-    </p>
-    <h3>Form</h3>
+    <p>Try out WebKeys on these selectable items.</p>
     <form action="#" method="GET">
-      <div>
+      <div class="form-component">
         <label for="input">Input</label>
         <input id="input" type="text" />
       </div>
-      <div>
+      <div class="form-component">
         <label for="select">select</label>
         <select id="select">
           <option>Value 1</option>
@@ -35,10 +67,11 @@
           <option>Value 3</option>
         </select>
       </div>
-      <div>
+      <div class="form-component">
         <label for="textarea">Text Area</label>
         <textarea id="textarea" cols="30" rows="10"></textarea>
       </div>
+      <button>Button</button>
     </form>
   </body>
 </html>

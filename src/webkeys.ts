@@ -4,7 +4,7 @@ import { closePopups, showPopups } from "./popup";
 
 addStyle();
 
-window.addEventListener("keypress", (e) => {
+window.addEventListener("keydown", (e) => {
   if (e.key !== ":") {
     return;
   }
